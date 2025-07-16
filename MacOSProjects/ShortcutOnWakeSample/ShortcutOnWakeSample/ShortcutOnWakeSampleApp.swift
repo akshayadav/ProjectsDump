@@ -8,8 +8,20 @@
 import SwiftUI
 import SwiftData
 
+struct WebSocketConnectionFactoryEnvironmentKey: EnvironmentKey {
+    static let defaultValue: WebSocketConnectionFactory = DefaultWebSocketConnectionFactory()
+}
+
+extension EnvironmentValues {
+    var webSocketConnectionFactory: WebSocketConnectionFactory {
+        get { self[WebSocketConnectionFactoryEnvironmentKey.self] }
+        set { self[WebSocketConnectionFactoryEnvironmentKey.self] = newValue }
+    }
+}
+
 @main
 struct ShortcutOnWakeSampleApp: App {
+    
     let wakeObserver = WakeObserver()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
