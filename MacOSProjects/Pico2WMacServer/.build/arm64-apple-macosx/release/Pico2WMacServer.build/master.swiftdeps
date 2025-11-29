@@ -1,0 +1,6 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "49e04d1f653f2637e86c1115a5db463e5f8f6f77881c063223eb767025df1083"
+build_start_time: [1763794683, 152179000]
+build_end_time: [1763794685, 233481000]
+inputs:
+  "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Sources/Pico2WMacServer/main.swift": !dirty [1763794385, 800000000]

@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/debug/Pico2WMacServer.build/master.swiftdeps"
+  },
+  "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Sources/Pico2WMacServer/main.swift": {
+    "dependencies": "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/debug/Pico2WMacServer.build/main.d",
+    "object": "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/debug/Pico2WMacServer.build/main.swift.o",
+    "swiftmodule": "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/debug/Pico2WMacServer.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/debug/Pico2WMacServer.build/main.swiftdeps"
+  }
+}

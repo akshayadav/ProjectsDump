@@ -1,0 +1,66 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "Pico2WMacServer-arm64-apple-macosx15.0-release.exe": ["<Pico2WMacServer-arm64-apple-macosx15.0-release.exe>"]
+  "Pico2WMacServer-arm64-apple-macosx15.0-release.module": ["<Pico2WMacServer-arm64-apple-macosx15.0-release.module>"]
+  "main": ["<Pico2WMacServer-arm64-apple-macosx15.0-release.exe>","<Pico2WMacServer-arm64-apple-macosx15.0-release.module>"]
+  "test": ["<Pico2WMacServer-arm64-apple-macosx15.0-release.exe>","<Pico2WMacServer-arm64-apple-macosx15.0-release.module>"]
+default: "main"
+nodes:
+  "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Sources/Pico2WMacServer/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Sources/Pico2WMacServer/main.swift"]
+    outputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/sources"]
+    description: "Write auxiliary file /Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/sources"
+
+  "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/main.swift.o"]
+    outputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.product/Objects.LinkFileList"
+
+  "/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+
+  "<Pico2WMacServer-arm64-apple-macosx15.0-release.exe>":
+    tool: phony
+    inputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer"]
+    outputs: ["<Pico2WMacServer-arm64-apple-macosx15.0-release.exe>"]
+
+  "<Pico2WMacServer-arm64-apple-macosx15.0-release.module>":
+    tool: phony
+    inputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/main.swift.o","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Modules/Pico2WMacServer.swiftmodule"]
+    outputs: ["<Pico2WMacServer-arm64-apple-macosx15.0-release.module>"]
+
+  "C.Pico2WMacServer-arm64-apple-macosx15.0-release.exe":
+    tool: shell
+    inputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/main.swift.o","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.product/Objects.LinkFileList"]
+    outputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer"]
+    description: "Linking ./.build/arm64-apple-macosx/release/Pico2WMacServer"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release","-o","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer","-module-name","Pico2WMacServer","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-dead_strip","-Xlinker","-alias","-Xlinker","_Pico2WMacServer_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.5/macosx","-target","arm64-apple-macosx10.15","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.Pico2WMacServer-arm64-apple-macosx15.0-release.module":
+    tool: shell
+    inputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Sources/Pico2WMacServer/main.swift","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/sources"]
+    outputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/main.swift.o","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Modules/Pico2WMacServer.swiftmodule"]
+    description: "Compiling Swift Module 'Pico2WMacServer' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","Pico2WMacServer","-emit-dependencies","-emit-module","-emit-module-path","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Modules/Pico2WMacServer.swiftmodule","-output-file-map","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/output-file-map.json","-whole-module-optimization","-num-threads","10","-c","@/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Pico2WMacServer.build/sources","-I","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx10.15","-O","-j10","-DSWIFT_PACKAGE","-module-cache-path","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","Pico2WMacServer_main","-color-diagnostics","-swift-version","5","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Sources/Pico2WMacServer/","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Package.swift","/Volumes/T7/Github_SyncdProjects/MacOSProjects/Pico2WMacServer/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

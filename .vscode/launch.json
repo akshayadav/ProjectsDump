@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Github_SyncdProjects}/Pico2W/Pico2WMacServer",
+            "name": "Debug Pico2WMacServer (Pico2W/Pico2WMacServer)",
+            "target": "Pico2WMacServer",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Pico2WMacServer (Pico2W/Pico2WMacServer)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Github_SyncdProjects}/Pico2W/Pico2WMacServer",
+            "name": "Release Pico2WMacServer (Pico2W/Pico2WMacServer)",
+            "target": "Pico2WMacServer",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Pico2WMacServer (Pico2W/Pico2WMacServer)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Github_SyncdProjects}/MacOSProjects/Pico2WMacServer",
+            "name": "Debug Pico2WMacServer (MacOSProjects/Pico2WMacServer)",
+            "target": "Pico2WMacServer",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Pico2WMacServer (MacOSProjects/Pico2WMacServer)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Github_SyncdProjects}/MacOSProjects/Pico2WMacServer",
+            "name": "Release Pico2WMacServer (MacOSProjects/Pico2WMacServer)",
+            "target": "Pico2WMacServer",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Pico2WMacServer (MacOSProjects/Pico2WMacServer)"
+        }
+    ]
+}
